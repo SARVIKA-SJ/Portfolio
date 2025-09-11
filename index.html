@@ -285,26 +285,102 @@ section {
   .tags { display:flex; gap:8px; margin-top:10px; flex-wrap:wrap; }
   .tag { padding:6px 10px; border-radius:999px; font-size:12px;  color: var(--accent-2);  ; background:rgba(6,182,212,0.09); border:1px solid rgba(6,182,212,0.25); font-weight:600; }
 
-  /* ================================
-     PUBLICATIONS
-  =================================== */
-  .publications { display:grid; gap:12px; }
-  .publication { padding:12px; border-radius:10px; background:var(--card); border:1px solid rgba(255,255,255,0.02); box-shadow:0 8px 18px rgba(0,0,0,0.45); }
-  .publication h4 { margin:0 0 6px; font-size:1rem; }
-  .publication .meta { color:var(--muted); font-weight:600; font-size:13px; margin-bottom:8px; }
-  .publication p { margin:0; color:var(--muted); font-size:14px; }
+/* ================================
+   PUBLICATIONS
+================================== */
+.publications {
+  display: grid;
+  gap: 16px;
+}
+
+.publication {
+  padding: 16px;
+  border-radius: 10px;
+  background: var(--card);
+  border-left: 4px solid #1e90ff; /* blue stripe */
+  box-shadow: 0 8px 18px rgba(0,0,0,0.45);
+}
+
+.publication h4 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+  color: var(--text); /* auto adapts to light/dark */
+}
+
+.publication .meta {
+  color: #1e90ff;
+  font-weight: 600;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.publication .authors {
+  color: var(--text);
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.publication p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
 
   /* ================================
      CONTACT
-  =================================== */
-  .contact-card { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-  @media (max-width:820px){ .contact-card { grid-template-columns:1fr; } }
-  .contact-item { display:flex; gap:12px; align-items:flex-start; color:var(--muted); }
-  .icon { width:36px; height:36px; color:var(--accent); flex:0 0 36px; }
-  form { display:flex; flex-direction:column; gap:10px; }
-  form input, form textarea { padding:10px; border-radius:8px; border:1px solid rgba(255,255,255,0.06); background:transparent; color:var(--text); }
-  form button { padding:10px; border-radius:8px; border:0; background:var(--accent); color:#021626; font-weight:700; cursor:pointer; }
+=================================== */
+.contact-card { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 14px; 
+}
 
+@media (max-width: 820px) { 
+  .contact-card { 
+    grid-template-columns: 1fr;   /* stack on mobile */
+  } 
+}
+
+.contact-item { 
+  display: flex; 
+  gap: 12px; 
+  align-items: center;    /* ✅ icon + text align neatly */
+  color: var(--muted); 
+}
+
+.icon { 
+  width: 36px; 
+  height: 36px; 
+  color: var(--accent); 
+  flex: 0 0 36px; 
+}
+
+form { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 10px; 
+}
+
+form input, 
+form textarea { 
+  padding: 10px; 
+  border-radius: 8px; 
+  border: 1px solid rgba(255,255,255,0.06); 
+  background: transparent; 
+  color: var(--text); 
+}
+
+form button { 
+  padding: 10px; 
+  border-radius: 8px; 
+  border: 0; 
+  background: var(--accent); 
+  color: #021626; 
+  font-weight: 700; 
+  cursor: pointer; 
+}
 
   /* ================================
      FOOTER & UTIL
@@ -355,6 +431,189 @@ section {
 
 /* Hover effect */
 .theme-toggle-circle:hover { transform: scale(1.1); }
+/* ==============================
+   MOBILE-FRIENDLY LAYOUT
+================================= */
+@media (max-width: 768px) {
+  
+  /* Reduce section padding/margin */
+  section {
+    padding: 20px 15px;  /* slightly smaller padding from sides */
+    margin: 30px 0;      /* reduce vertical spacing */
+  }
+
+  /* Grid sections: About, Skills, Projects, Contact */
+  .about-grid, 
+  .skills-grid, 
+  .project-grid, 
+  .contact-grid {
+    grid-template-columns: 1fr;  /* single column */
+    gap: 16px;                   /* reduce gap for mobile */
+  }
+
+/* ==============================
+   ABOUT / SKILLS MOBILE GRID SPACING
+================================= */
+@media (max-width: 768px) {
+
+  /* About Me grid spacing like Skills */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr;   /* single column on mobile */
+    gap: 16px;                     /* spacing between cards */
+    padding: 0 0px;               /* space from screen edges */
+    box-sizing: border-box;
+  }
+
+  .about-grid .card {
+    width: 100%;                   /* full width cards */
+    margin: 5;                      /* remove extra margin */
+    padding: 16px;                  /* consistent padding */
+    box-sizing: border-box;
+  }
+
+  /* Ensure About Me list items are left-aligned */
+  .blue-list li {
+    text-align: left;
+    justify-content: flex-start;
+  }
+
+  .blue-list li::before {
+    margin-top: 6px;                /* align bullet with text */
+  }
+}
+
+  /* ==============================
+   TIMELINE
+============================= */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  padding-left: 40px; /* space for the line & dots */
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 20px;          /* line position */
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: var(--accent);
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 40px;  /* space for dot */
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 12px;           /* dot aligned with line */
+  top: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--card);
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 900px) {
+  .timeline {
+    padding-left: 25px;
+  }
+  .timeline::before {
+    left: 12px;
+  }
+  .timeline-item::before {
+    left: 5px;
+  }
+  .timeline-item {
+    padding-left: 35px;
+  }
+}
+
+
+/* ==============================
+   NAVBAR
+============================== */
+.nav {
+  display: flex;
+  flex-direction: row;   /* horizontal line */
+  align-items: center;   /* vertically center items */
+  gap: 20px;             /* spacing between links */
+}
+
+.nav a {
+  display: inline-block; /* ensures proper spacing */
+  padding: 8px 12px;     /* adjust padding as needed */
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: var(--accent);
+}
+
+
+  /* ==============================
+     CARDS
+  ============================= */
+  .card {
+    padding: 16px;
+    text-align: left;      /* left-align card text for mobile */
+  }
+  .card svg {
+    margin: 0;             /* icons stay inline */
+  }
+
+  /* ==============================
+     SOCIAL LINKS
+  ============================= */
+  .social-links {
+    justify-content: center;
+    gap: 12px;
+  }
+
+  /* ==============================
+     GET IN TOUCH
+  ============================= */
+  .contact-card,
+  .contact-grid {
+    grid-template-columns: 1fr;  /* single column */
+    gap: 16px;
+  }
+
+  .contact-card .card,
+  .contact-grid .card {
+    width: 100%;
+    margin: 0;
+    padding: 16px;
+    box-sizing: border-box;
+  }
+
+  .contact-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;         /* vertically center icon + text */
+    justify-content: flex-start; /* left-align icon + text */
+    text-align: left;            /* force text left */
+    gap: 12px;
+  }
+
+  .contact-item .icon {
+    flex: 0 0 36px;              /* consistent icon size */
+  }
+}
+
+
+
 
 </style>
   
@@ -817,42 +1076,44 @@ section {
 </section>
 </section>
 
-<!-- PUBLICATIONS -->
 <section class="section fade-in" id="publication">
+  <h2 class="section-title">Publications</h2>
+  <div class="publications">
 
-<section id="projects" aria-labelledby="projects-heading">
-  <h2 id="projects-heading" class="section-title">Publications</h2>
-  <!-- FloraScan -->
-  <div style="border-left:4px solid #1e90ff; padding-left:12px; margin-bottom:16px;">
-    <strong style="display:block; font-size:18px; color:#fff; margin-bottom:6px;">
-      FloraScan — Plant Disease Diagnosis
-    </strong>
-    <div style="color:#1e90ff; font-weight:600; margin-bottom:6px;">
-      International Journal of Research Publication and Reviews, Vol. 6, Issue 5, May 2025, pp. 10904–10907
+    <!-- FloraScan -->
+    <div class="publication">
+      <h4>FloraScan — Plant Disease Diagnosis</h4>
+      <div class="meta">
+        International Journal of Research Publication and Reviews, Vol. 6, Issue 5, May 2025, pp. 10904–10907
+      </div>
+      <div class="authors">
+        Authors: Sarvika S J, P Deepthi, Shivani Shikha
+      </div>
+      <p>
+        Deep-learning approach using VGG19 for accurate plant disease identification.
+        Demonstrates real-time predictions with multilingual, web-based UI, achieving
+        above-90% accuracy and detailing dataset preparation, training, evaluation,
+        and practical remediation guidance.
+      </p>
     </div>
-    <div style="color:#a0a0a0; margin-bottom:4px; line-height:1.5;">
-      Authors: Sarvika S J, P Deepthi, Shivani Shikha
+
+    <!-- Intelligent Healing -->
+    <div class="publication">
+      <h4>Intelligent Healing: Advancing Healthcare Through AI</h4>
+      <div class="meta">Unpublished</div>
+      <div class="authors">
+        Authors: Sarvika S J, Ganashree R, P Deepthi
+      </div>
+      <p>
+        Survey of AI’s role across diagnosis, treatment planning, and patient care.
+        Discusses opportunities, clinical integration, ethical considerations, and
+        data privacy challenges while outlining recommendations for responsible
+        deployment in modern healthcare ecosystems.
+      </p>
     </div>
-    <div style="color:#a0a0a0; margin-bottom:4px; line-height:1.5;">
-      Deep-learning approach using VGG19 for accurate plant disease identification. Demonstrates real-time predictions with multilingual, web-based UI, achieving above-90% accuracy and detailing dataset preparation, training, evaluation, and practical remediation guidance.
-    </div>
+
   </div>
 
-  <!-- Intelligent Healing -->
-  <div style="border-left:4px solid #1e90ff; padding-left:12px; margin-bottom:16px;">
-    <strong style="display:block; font-size:18px; color:#fff; margin-bottom:6px;">
-      Intelligent Healing: Advancing Healthcare Through AI
-    </strong>
-    <div style="color:#1e90ff; font-weight:600; margin-bottom:6px;">
-      Unpublished
-    </div>
-    <div style="color:#a0a0a0; margin-bottom:4px; line-height:1.5;">
-      Authors: Sarvika S J, Ganashree R, P Deepthi
-    </div>
-    <div style="color:#a0a0a0; margin-bottom:4px; line-height:1.5;">
-      Survey of AI’s role across diagnosis, treatment planning, and patient care. Discusses opportunities, clinical integration, ethical considerations, and data privacy challenges while outlining recommendations for responsible deployment in modern healthcare ecosystems.
-    </div>
-  </div>
 </section>
 </section>
 
