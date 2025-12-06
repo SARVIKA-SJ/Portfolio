@@ -1,52 +1,53 @@
-Portfolio Website
-Overview
+<h1>Portfolio Website</h1>
+<h2>Overview</h2>
 
-This is a personal portfolio website showcasing my web development skills, projects, and achievements. The website features a modern UI with smooth animations, background images, and a dark mode toggle.
+<p>This is a personal portfolio website showcasing my web development skills, projects, and achievements. The website features a modern UI with smooth animations, background images, and a dark mode toggle.</p>
 
-Features
+<h2>Features</h2>
+<ul>
+<li>Responsive Design: Works seamlessly on all screen sizes.</li>
 
-Responsive Design: Works seamlessly on all screen sizes.
+<li>Dark Mode Toggle: Switch between light and dark themes.</li>
 
-Dark Mode Toggle: Switch between light and dark themes.
+<li>Background Images: Enhances visual appeal.</li>
 
-Background Images: Enhances visual appeal.
+<li>Animated Buttons & Sections: Smooth interactive animations.</li>
 
-Animated Buttons & Sections: Smooth interactive animations.
+<li>Contact Form: Send messages directly via Formspree.</li>
+</ul>
+<h2>Technologies Used</h2>
+<ul>
+<li>Frontend: HTML, CSS, JavaScript</li>
 
-Contact Form: Send messages directly via Formspree.
+<li>Styling: CSS3 with animations</li>
+</ul>
+<h2>Installation</h2>
 
-Technologies Used
+<h3>1. Clone the repository:</h3>
 
-Frontend: HTML, CSS, JavaScript
-
-Styling: CSS3 with animations
-
-Installation
-
-Clone the repository:
-
-git clone https://github.com/your-username/your-portfolio.git
-
-
-Navigate to the project folder:
-
-cd your-portfolio
+<p>git clone https://github.com/your-username/your-portfolio.git</p>
 
 
-Open index.html in a web browser to view your portfolio.
+<h3>2. Navigate to the project folder:</h3>
 
-Usage
+<p>cd your-portfolio</p>
 
-Explore different sections of the website.
+<h3>3. Open the website</h3>
+<p>Open index.html in a web browser to view your portfolio.</p>
 
-Use the dark mode toggle to switch themes.
+<h2>Usage</h2>
+<ul>
+<li>Explore different sections of the website.</li>
 
-Fill out the contact form to send a message.
+<li>Use the dark mode toggle to switch themes.</li>
 
-Future Enhancements
+<li>Fill out the contact form to send a message.</li>
+</ul>
+<h2>Future Enhancements</h2>
+<ul>
+<li>Add more projects and animations.</li>
 
-Add more projects and animations.
+<li>Improve UI and responsiveness.</li>
 
-Improve UI and responsiveness.
-
-Optimize for SEO and performance.
+<li>Optimize for SEO and performance.</li>
+</ul>
